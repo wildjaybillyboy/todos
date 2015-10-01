@@ -6,7 +6,7 @@ if (Meteor.isClient) {
     passwordSignupFields: "USERNAME_ONLY"
   });
 
-  angular.module('todos',['angular-meteor', 'wu.masonry']);
+  angular.module('todos',['angular-meteor']);
 
   angular.module('todos').controller('TodosListCtrl', ['$scope', '$meteor',
   function ($scope, $meteor) {

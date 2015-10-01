@@ -16,8 +16,8 @@
     <input ng-model="newTask" type="text" name="text" placeholder="Type to add new tasks" />
   </form>
 
-  <div masonry item-selector=".brick" column-width="200">
-    <div ng-repeat="task in tasks" class="brick" ng-class="{'checked': task.checked, 'private': task.private}">
+  <ul>
+    <li ng-repeat="task in tasks" ng-class="{'checked': task.checked, 'private': task.private}">
       <button class="delete" ng-click="deleteTask(task)">&times;</button>
       <input type="checkbox" ng-checked="task.checked" ng-click="setChecked(task)" class="toggle-checked" />
       <button class="toggle-private"
@@ -26,6 +26,6 @@
         {{task.private == true ? "Private" : "Public"}}
       </button>
       <span class="text"><strong>{{task.username}}</strong> - {{task.text}}</span>
-    </div>
-  </div>
+    </li>
+  </ul>
 </div>
