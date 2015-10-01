@@ -6,7 +6,7 @@ if (Meteor.isClient) {
     passwordSignupFields: "USERNAME_ONLY"
   });
 
-  angular.module('todos',['angular-meteor', 'wu.masonry']);
+  angular.module('todos',['angular-meteor']);
 
   angular.module('todos').controller('TodosListCtrl', ['$scope', '$meteor',
   function ($scope, $meteor) {
@@ -43,6 +43,17 @@ if (Meteor.isClient) {
       return Tasks.find({ checked: {$ne: true}}).count();
     };
   }]);
+
+
+  //masonry app stuff
+  angular.module('masonry', ['wu-masonry']);
+  angular.module('masonry').controller('MasonryCtrl', ['$scope', '$meteor'],
+  function ($scope, $meteor) {
+    $scope.$meteorSubscribe('tasks');
+    $scope.tasks = $meteor.collection(Tasks);
+  });
+
+  
 }
 
 if (Meteor.isServer) {
