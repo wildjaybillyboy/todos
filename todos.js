@@ -6,7 +6,7 @@ if (Meteor.isClient) {
     passwordSignupFields: "USERNAME_ONLY"
   });
 
-  angular.module('todos',['angular-meteor']);
+  angular.module('todos',['angular-meteor', 'angular-filter']);
 
   angular.module('todos').controller('TodosListCtrl', ['$scope', '$meteor',
   function ($scope, $meteor) {
@@ -42,6 +42,18 @@ if (Meteor.isClient) {
     $scope.incompleteCount = function () {
       return Tasks.find({ checked: {$ne: true}}).count();
     };
+
+    //for testing angular-filter
+    $scope.orders = [
+      { id: 21, customer: { id: 2, name: 'John P.' }, product: { price: 21.12 }  },
+      { id: 22, customer: { id: 1, name: 'Cati P.' }, product: { price: 89.21 }  },
+      { id: 23, customer: { id: 1, name: 'Cati P.' }, product: { price: 49.00 }  },
+      { id: 24, customer: { id: 3, name: 'Poul S.' }, product: { price: 10.22 }  },
+      { id: 25, customer: { id: 4, name: 'Erik L.' }, product: { price: 11.31 }  },
+      { id: 26, customer: { id: 4, name: 'Erik L.' }, product: { price: 90.99 }  },
+      { id: 27, customer: { id: 2, name: 'Cati P.' }, product: { price: 88.99 }  }
+    ];
+
   }]);
 }
 

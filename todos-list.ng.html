@@ -28,4 +28,12 @@
       <span class="text"><strong>{{task.username}}</strong> - {{task.text}}</span>
     </li>
   </ul>
+
+  <div>
+    Test angular-filter
+    <div ng-repeat="order in orders | first">
+      {{order.id}} customer {{order.customer.id}} {{order.customer.name}}
+    </div>
+  </div>
+
 </div>
